@@ -175,8 +175,10 @@ class PartitionTCA(nn.Module):
                 if numpy:
                     temp[i].append( self.positive_function[i][j](self.vectors[i][j]).detach().cpu().numpy())
                 else:
-                    if not detach: temp[i].append(self.positive_function[i][j](self.vectors[i][j]).detach())
-                    else: temp[i].append(self.positive_function[i][j](self.vectors[i][j]))
+                    if detach: 
+                        temp[i].append(self.positive_function[i][j](self.vectors[i][j]).detach())
+                    else: 
+                        temp[i].append(self.positive_function[i][j](self.vectors[i][j]))
 
         return temp
 
